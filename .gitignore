@@ -3,6 +3,9 @@
 
 # Keep git metadata files
 !.gitignore
+!.github/
+!.github/workflows/
+!.github/workflows/**
 
 # Allow path down to theme
 !app/

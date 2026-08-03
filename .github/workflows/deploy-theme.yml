@@ -1,0 +1,39 @@
+name: Deploy WordPress Theme
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - app/public/wp-content/themes/mandevco/**
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Start SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
+
+      - name: Add host to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "${{ secrets.DEPLOY_PORT }}" "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Ensure target directory exists
+        run: |
+          ssh -p "${{ secrets.DEPLOY_PORT }}" "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "mkdir -p '${{ secrets.DEPLOY_PATH }}'"
+
+      - name: Deploy theme via rsync
+        run: |
+          rsync -az --delete \
+            -e "ssh -p ${{ secrets.DEPLOY_PORT }}" \
+            app/public/wp-content/themes/mandevco/ \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/"
