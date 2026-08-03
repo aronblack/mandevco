@@ -1,3 +1,4 @@
+(function ($) {
 $(document).ready(function(){
     // Our Blog Slider
     $('.blog-slider').slick({
@@ -101,3 +102,4 @@ $(document).ready(function(){
     
   
 });
+})(jQuery);
