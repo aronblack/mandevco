@@ -1,0 +1,13 @@
+# Track only the custom theme
+*
+
+# Keep git metadata files
+!.gitignore
+
+# Allow path down to theme
+!app/
+!app/public/
+!app/public/wp-content/
+!app/public/wp-content/themes/
+!app/public/wp-content/themes/mandevco/
+!app/public/wp-content/themes/mandevco/**

@@ -1,0 +1,270 @@
+// font
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900&display=swap');
+// font-family: 'Work Sans', sans-serif;
+// font veriable
+$font-worksans: 'Work Sans', sans-serif;
+
+
+// color
+$white: #fff;
+$black: #000;
+$blue-primary: #134f8d;
+$text-black: #333333;
+$gray-bg: #E6E7E7;
+
+// media screen
+@mixin max-1199 {
+    @media screen and (max-width:1199px) {
+        @content;
+    }
+}
+@mixin max-1024 {
+    @media screen and (max-width:1024px) {
+        @content;
+    }
+}
+@mixin max-991 {
+    @media screen and (max-width:991px) {
+        @content;
+    }
+}
+@mixin max-768 {
+    @media screen and (max-width:768px) {
+        @content;
+    }
+}
+@mixin max-767 {
+    @media screen and (max-width:767px) {
+        @content;
+    }
+}
+@mixin max-575 {
+    @media screen and (max-width:575px) {
+        @content;
+    }
+}
+@mixin max-420 {
+    @media screen and (max-width:420px) {
+        @content;
+    }
+}
+@mixin max-360 {
+    @media screen and (max-width:360px) {
+        @content;
+    }
+}
+@mixin max-320 {
+    @media screen and (max-width:320px) {
+        @content;
+    }
+}
+
+
+
+// mixin classes
+@mixin outline-btn {
+    background: rgba(255, 255, 255, 0.5);
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: $blue-primary;
+    border: 1px solid $blue-primary;
+    display: inline-block;
+    width: 100%;
+    max-width: 250px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $font-worksans;
+    @include transition(all 500ms);
+    &:hover{
+        color: $white;
+        background: $blue-primary;
+    }
+}
+@mixin outline-blue-btn {
+    background: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    color: $blue-primary;
+    border: 1px solid $blue-primary;
+    display: inline-block;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $font-worksans;
+    padding: 0px 30px;
+    @include transition(all 500ms);
+    &:hover{
+        background: $blue-primary;
+        color: $white;
+    }
+    @include max-420{
+        padding: 0px 20px;
+    }
+}
+
+@mixin blue-btn {
+    color: $white;
+    background: $blue-primary;
+    font-size: 20px;
+    padding: 5px 40px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid transparent;
+    @include border-radius(30px);
+    @include transition(all 500ms);
+    &:hover{
+        color: $blue-primary;
+        background: none;
+        border-color: $blue-primary;
+    }
+}
+@mixin description {
+    font-size: 16px;
+    color: $text-black;
+    font-weight: 500;
+    font-family: $font-worksans;
+}
+
+
+@mixin bg-cover-common {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@mixin absolute-common {
+    position: absolute;
+    content: '';
+}
+
+@mixin flex {
+    display:-webkit-flex;
+    display:-webkit-box;
+    display:-moz-flex;
+    display:-moz-box;
+    display:-ms-flexbox;
+    display:flex;
+}
+@mixin justify-content_between {
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+}
+@mixin  justify-content_around{
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -o-justify-content: space-around;
+    justify-content: space-around;
+}
+@mixin justify-content_flex-start {
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    -o-justify-content: flex-start;
+    justify-content: flex-start;
+}
+@mixin justify-content_flex-end {
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end;
+}
+@mixin justify-content_center {
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+}
+@mixin align-item_center {
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+}
+@mixin align-item_flex-start {
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -ms-align-items: flex-start;
+    -o-align-items: flex-start;
+    align-items: flex-start;
+}
+@mixin align-item_flex-end {
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    -ms-align-items: flex-end;
+    -o-align-items: flex-end;
+    align-items: flex-end;
+}
+@mixin flex-direction_column {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+}
+@mixin flex-direction_column-reverse {
+    -webkit-flex-direction: column-reverse;
+    -moz-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    -o-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+}
+@mixin flex-direction_row {
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+}
+@mixin flex-direction_row-reverse {
+    -webkit-flex-direction: row-reverse;
+    -moz-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    -o-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+@mixin flex_wrap {
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+@mixin flex_nowrap {
+    -webkit-flex-wrap: nowrap;
+    -moz-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    -o-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+@mixin border-radius($value) {
+    -webkit-border-radius: ($value);
+    -moz-border-radius: ($value);
+    -ms-border-radius: ($value);
+    -o-border-radius: ($value);
+    border-radius: ($value);
+}
+
+@mixin transition($value) {
+    -webkit-transition:($value);
+    -moz-transition:($value);
+    -ms-transition:($value);
+    -o-transition:($value);
+    transition:($value);
+}
+
+@mixin rotate($value) {
+    -webkit-transform: ($value);
+    -moz-transform: ($value);
+    -ms-transform: ($value);
+    -o-transform: ($value);
+    transform: ($value);
+}

@@ -1,0 +1,1311 @@
+/* ----------------------------------------------------------------------------------------
+* Author        : Qrolic
+* Template Name : Mandevco
+* File          : Main CSS file
+* Version       : 1.0
+* ---------------------------------------------------------------------------------------- */
+
+/* INDEX
+----------------------------------------------------------------------------------------
+01. General css
+02. Header css
+03. Home page css
+04. Footer css
+05. Commercial Page
+06. Region Page
+07. Developments Page
+08. Team Page
+08. News Page
+-------------------------------------------------------------------------------------- */
+@use 'variable';
+
+/************************************/
+/***** 	   01. General css		 ****/
+/************************************/
+/************************************/
+body {
+  font-size: 18px;
+  color: variable.$white;
+  margin: 0px;
+  padding: 0;
+  font-family: variable.$font-worksans;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+a:hover,
+a {
+  text-decoration: none;
+  outline: 0;
+}
+
+a:focus {
+  text-decoration: none;
+  outline: 0;
+}
+
+::-moz-selection {
+  background: #05cbfc;
+  color: #fff;
+}
+
+::selection {
+  background: #05cbfc;
+  color: #fff;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+button:focus,
+input:focus,
+img:focus,
+.slick-slide:focus,
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.transition {
+  transition: 700ms;
+}
+
+.center {
+  text-align: center;
+}
+
+.section-margin-top {
+  margin-top: 80px;
+  @include variable.max-767 {
+    margin-top: 60px;
+  }
+}
+
+.section-margin-bottom {
+  margin-bottom: 50px;
+  @include variable.max-767 {
+    margin-bottom: 60px;
+  }
+}
+
+.section-padding-top {
+  padding-top: 80px;
+  @include variable.max-767 {
+    padding-top: 60px;
+  }
+}
+
+.section-padding-bottom {
+  padding-bottom: 80px;
+  @include variable.max-767 {
+    padding-bottom: 60px;
+  }
+}
+
+.section-margin {
+  margin: 80px 0px;
+  @include variable.max-767 {
+    margin: 60px 0;
+  }
+}
+
+.section-padding {
+  padding: 80px 0;
+  @include variable.max-767 {
+    padding: 60px 0;
+  }
+}
+
+.desktop-hide {
+  display: none;
+  @include variable.max-767 {
+    display: block;
+  }
+}
+
+/************************************/
+/***** 	   02. Header css		 ****/
+/************************************/
+.header-inner {
+  background: variable.$white;
+  padding: 25px 30px;
+  @include variable.flex;
+  @include variable.justify-content_between;
+  @include variable.align-item_center;
+  @include variable.max-767 {
+    padding: 25px 15px;
+    @include variable.flex_wrap;
+  }
+
+  .menu {
+    @include variable.flex;
+    @include variable.justify-content_around;
+    @include variable.max-767 {
+      @include variable.flex-direction_column;
+      padding-top: 25px;
+    }
+
+    li {
+      @include variable.max-767 {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .site-branding {
+    margin-right: 70px;
+
+    img {
+      width: 100%;
+      max-width: 165px;
+    }
+  }
+
+  .navigation {
+    flex-grow: 1;
+    @include variable.max-767 {
+      width: 100%;
+    }
+  }
+
+  a {
+    font-size: 18px;
+    color: variable.$blue-primary;
+    font-family: variable.$font-worksans;
+    font-weight: 500;
+    text-transform: uppercase;
+    @include variable.transition(all 500ms);
+
+    &:hover {
+      color: variable.$text-black;
+    }
+  }
+
+  .menu-header-menu-container {
+    @include variable.max-767 {
+      display: none;
+    }
+  }
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  @include variable.max-767 {
+    display: block;
+    text-align: right;
+  }
+
+  i {
+    font-size: 40px;
+    color: variable.$gray-bg;
+  }
+}
+
+/************************************/
+/***** 	   03. Home page css		 ****/
+/************************************/
+.home-banner {
+  @include variable.bg-cover-common;
+  height: 100vh;
+  min-height: 550px;
+  position: relative;
+  @include variable.flex;
+  @include variable.align-item_center;
+
+  &__content {
+    h1 {
+      font-size: 65px;
+      text-align: center;
+      font-weight: 400;
+      margin-bottom: 50px;
+      @include variable.max-767 {
+        text-align: left;
+        font-size: 50px;
+        margin-bottom: 30px;
+      }
+      @include variable.max-360 {
+        font-size: 40px;
+      }
+    }
+
+    .button-group {
+      text-align: center;
+      @include variable.max-767 {
+        @include variable.flex;
+        @include variable.flex-direction_column;
+      }
+
+      a {
+        @include variable.outline-btn;
+        margin: 0px 15px;
+        @include variable.max-767 {
+          margin: 0px;
+          &:first-child {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-number {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: variable.$blue-primary;
+    @include variable.flex;
+    @include variable.align-item_center;
+    @include variable.max-767 {
+      display: none;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background: variable.$white;
+      color: variable.$blue-primary;
+    }
+
+    .number {
+      padding: 0px 40px 0px 10px;
+      font-size: 20px;
+
+      a {
+        color: variable.$white;
+      }
+    }
+  }
+}
+
+.grid-box {
+  @extend .section-margin-top;
+  @include variable.max-767 {
+    border: 3px solid variable.$blue-primary;
+    margin-top: 40px;
+  }
+
+  > .row {
+    @include variable.align-item_center;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: variable.$blue-primary;
+    font-family: variable.$font-worksans;
+  }
+
+  p {
+    @include variable.description;
+    margin: 30px 0px 50px;
+    @include variable.max-991 {
+      margin: 20px 0px 30px;
+    }
+  }
+
+  a.blue-btn {
+    @include variable.blue-btn;
+  }
+
+  &__content {
+    border: 1px solid variable.$blue-primary;
+    @include variable.max-767 {
+      border: none;
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 9;
+  }
+
+  &--left-content {
+    .col-md-4 {
+      @include variable.max-767 {
+        order: -1;
+      }
+    }
+
+    .grid-box__image {
+      margin-left: -210px;
+      @include variable.max-991 {
+        margin-left: -100px;
+      }
+      @include variable.max-767 {
+        margin-left: 0px;
+      }
+    }
+
+    .grid-box__content {
+      padding: 50px 270px 60px 70px;
+      @include variable.max-991 {
+        padding: 40px 100px 30px 30px;
+      }
+      @include variable.max-767 {
+        padding: 40px 100px 50px 70px;
+      }
+      @include variable.max-420 {
+        padding: 40px 30px 50px 30px;
+      }
+    }
+  }
+
+  &--right-content {
+    .grid-box__image {
+      margin-right: -210px;
+      @include variable.max-991 {
+        margin-right: -100px;
+      }
+      @include variable.max-767 {
+        margin-right: 0px;
+      }
+    }
+
+    .grid-box__content {
+      padding: 50px 140px 60px 210px;
+      @include variable.max-991 {
+        padding: 40px 30px 30px 100px;
+      }
+      @include variable.max-767 {
+        padding: 40px 100px 50px 70px;
+      }
+      @include variable.max-420 {
+        padding: 40px 30px 50px 30px;
+      }
+    }
+  }
+}
+
+.card-box-main {
+  @extend .section-margin-bottom;
+}
+
+.card-box-inner {
+  margin: 0px -20px;
+  @include variable.max-767 {
+    max-width: 80%;
+    margin: auto;
+  }
+  @include variable.max-360 {
+    max-width: 100%;
+  }
+}
+
+.card-box {
+  @extend .section-margin-top;
+  text-align: center;
+  padding: 0px 20px;
+  @include variable.max-420 {
+    padding: 0px;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+
+  &__image {
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      @include variable.transition(all 500ms);
+    }
+  }
+
+  h2, h2 a {
+    color: variable.$blue-primary;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  h2 {
+    margin: 30px 0px;
+  }
+
+  p {
+    @include variable.description;
+  }
+}
+
+.blog-button-inner {
+  @include variable.flex;
+  @include variable.align-item_center;
+  height: 100%;
+}
+
+.our-blog-main {
+  @extend .section-padding;
+  background: variable.$gray-bg;
+}
+
+.blog-button {
+  width: 100%;
+  @include variable.max-767 {
+    text-align: center;
+  }
+
+  a {
+    @include variable.blue-btn;
+    @include variable.border-radius(0px);
+    padding: 10px 0px;
+    width: 100%;
+    font-weight: 200;
+    display: block;
+    @include variable.max-767 {
+      display: inline-block;
+      width: auto;
+      padding: 10px 50px;
+      margin-top: 40px;
+    }
+  }
+}
+
+.our-blog-back {
+  @include variable.flex;
+  @include variable.flex_wrap;
+  margin: 0px -15px;
+  @include variable.max-767 {
+    width: 100%;
+    margin: auto;
+    max-width: 400px;
+  }
+}
+
+.slick-arrow {
+  z-index: 99;
+}
+
+@include variable.max-767 {
+  .slick-next {
+    right: -15px;
+  }
+  .slick-prev {
+    left: -20px;
+  }
+}
+
+@include variable.max-420 {
+  .slick-next {
+    right: 0px;
+  }
+  .slick-prev {
+    left: -5px;
+  }
+}
+
+.our-blog {
+  // width: 20%;
+  &__inner {
+    padding: 15px;
+    margin: 0px 15px;
+    background: variable.$white;
+    @include variable.max-420 {
+      margin: 0px 30px;
+    }
+  }
+
+  &__image {
+    margin: 0px -15px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  span, h3, a, p {
+    color: variable.$blue-primary;
+    font-weight: 600;
+  }
+
+  span, p {
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin: 10px 0px;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+
+  span {
+    display: block;
+  }
+
+  a.read-more {
+    background: variable.$blue-primary;
+    color: variable.$white;
+    font-size: 16px;
+    padding: 8px 20px;
+    height: 15px;
+    line-height: 15px;
+    display: block;
+    width: fit-content;
+    margin-top: 10px;
+    @include variable.border-radius(7px);
+  }
+}
+
+.our-team-main {
+  @extend .section-padding;
+  @include variable.max-767 {
+    padding-bottom: 0;
+  }
+}
+
+.our-team {
+  &__content {
+    padding: 0px 60px 0 40px;
+    @include variable.max-991 {
+      padding: 0 20px 0 20px;
+    }
+    @include variable.max-767 {
+      padding: 0 0 50px;
+      width: 100%;
+      max-width: 70%;
+      margin: auto;
+      text-align: center;
+    }
+    @include variable.max-360 {
+      max-width: 100%;
+    }
+  }
+
+  .row {
+    .col-md-5 {
+      @include variable.max-767 {
+        order: -1;
+      }
+    }
+  }
+}
+
+.common-content {
+  h1 {
+    color: variable.$blue-primary;
+    font-weight: 500;
+    font-family: variable.$font-worksans;
+    font-size: 36px;
+    @include variable.max-767 {
+      font-size: 24px;
+    }
+  }
+
+  p {
+    @include variable.description;
+    margin: 30px 0px;
+  }
+
+  a.blue-btn {
+    @include variable.blue-btn;
+  }
+}
+
+/************************************/
+/***** 	   04. Footer css		 ****/
+/************************************/
+.footer {
+  padding: 50px 0px;
+  background: variable.$blue-primary;
+
+  .contact-col, .logo-col {
+    @include variable.max-991 {
+      order: -1;
+    }
+  }
+
+  .border-right {
+    @include variable.max-991 {
+      border-right: none !important;
+    }
+  }
+
+  .container_d {
+    padding: 0px 40px;
+    @include variable.max-767 {
+      padding: 0px 0px;
+    }
+  }
+
+  .footer-logo {
+    img {
+      max-width: 255px;
+      width: 100%;
+      @include variable.max-360 {
+        max-width: 200px;
+      }
+    }
+  }
+
+  .footer-menu {
+    a {
+      font-size: 14px;
+      color: variable.$white;
+      font-family: variable.$font-worksans;
+      @include variable.transition(all 500ms);
+
+      &:hover {
+        color: variable.$text-black;
+      }
+    }
+  }
+
+  h4 {
+    font-size: 16px;
+    color: variable.$white;
+    margin-bottom: 10px;
+  }
+
+  .footer-follow {
+    @include variable.max-991 {
+      margin-top: 30px;
+    }
+
+    h4 {
+      padding-bottom: 10px;
+      border-bottom: 1px solid variable.$white;
+    }
+
+    a {
+      color: variable.$white;
+      font-size: 20px;
+      margin-right: 10px;
+      @include variable.transition(all 500ms);
+
+      &:hover {
+        color: variable.$text-black;
+      }
+    }
+  }
+
+  .footer-contact {
+    padding-right: 100px;
+    @include variable.max-1199 {
+      padding-right: 0px;
+    }
+    @include variable.max-991 {
+      margin: 30px 0px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    p, a {
+      font-size: 12px;
+      color: variable.$white;
+    }
+
+    p {
+      margin: 10px 0px;
+    }
+
+    a {
+      display: block;
+      @include variable.transition(all 500ms);
+
+      &:hover {
+        color: variable.$text-black;
+      }
+    }
+  }
+}
+
+.border-right {
+  border-right: 1px solid variable.$white;
+}
+
+/************************************/
+/***** 	   05. Commercial Page		 ****/
+/************************************/
+.page-header {
+  @include variable.flex;
+  @include variable.align-item_center;
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  min-height: 500px;
+  height: 85vh;
+  @include variable.max-767 {
+    height: auto;
+    min-height: 650px;
+    @include variable.align-item_flex-start;
+    padding-top: 100px;
+  }
+
+  &__content {
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.5);
+
+    h1 {
+      color: variable.$blue-primary;
+      font-family: variable.$font-worksans;
+      font-size: 46px;
+      margin-bottom: 20px;
+      @include variable.max-767 {
+        font-size: 36px;
+      }
+    }
+
+    p {
+      @include variable.description;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
+.page-header.header-bg-blue {
+  height: 100vh;
+  min-height: 700px;
+  padding-bottom: 150px;
+}
+
+.page-header.header-title-light {
+  @include variable.max-767 {
+    padding-bottom: 140px;
+  }
+
+  .page-header__content {
+    padding: 0px;
+    background: none;
+
+    h1, p {
+      color: variable.$white;
+    }
+  }
+}
+
+.select-region-main {
+  @extend .section-padding;
+}
+
+.select-region-main.select-region-top {
+  @extend .section-padding-bottom;
+  padding-top: 0px;
+  margin-top: -150px;
+}
+
+.page-title.mb-80 {
+  margin-bottom: 80px;
+  @include variable.max-767 {
+    margin-bottom: 40px;
+  }
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 50px;
+
+  h1 {
+    font-size: 46px;
+    color: variable.$blue-primary;
+    font-family: variable.$font-worksans;
+    padding-bottom: 20px;
+    @include variable.max-767 {
+      font-size: 24px;
+      padding-bottom: 10px;
+    }
+  }
+
+  span.underline {
+    width: 200px;
+    height: 3px;
+    background: variable.$blue-primary;
+    display: block;
+    margin: auto;
+    @include variable.max-767 {
+      width: 100px;
+      height: 2px;
+    }
+  }
+}
+
+.select-region-inner {
+  .page-title {
+    @include variable.max-767 {
+      margin-bottom: 0px;
+    }
+  }
+
+  .page-title.mb-80 {
+    @include variable.max-767 {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.region-box {
+  position: relative;
+  margin-top: 30px;
+
+  img {
+    width: 100%;
+    @include variable.max-767 {
+      height: 230px;
+      object-fit: cover;
+    }
+  }
+
+  .region-name {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    @include variable.flex;
+    @include variable.align-item_center;
+
+    h1 {
+      color: variable.$white;
+      font-size: 46px;
+      text-align: center;
+      width: 100%;
+      @include variable.max-991 {
+        font-size: 36px;
+      }
+      @include variable.max-767 {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+/************************************/
+/***** 	   06. Region Page		 ****/
+/************************************/
+.region {
+  border: 3px solid variable.$blue-primary;
+  @extend .section-margin-bottom;
+  background: variable.$white;
+
+  &__image {
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    &-des {
+      padding: 30px 40px;
+      background: variable.$gray-bg;
+      @include variable.max-420 {
+        padding: 20px 30px;
+      }
+
+      p {
+        @include variable.description;
+      }
+    }
+
+    &-btn {
+      text-align: right;
+      padding: 21px 40px;
+      @include variable.max-420 {
+        padding: 20px 30px;
+      }
+
+      a {
+        @include variable.outline-blue-btn;
+      }
+    }
+
+    &-head {
+      padding: 40px 40px 0px 40px;
+      @include variable.max-420 {
+        padding: 40px 30px 0px 30px;
+      }
+
+      ul {
+        padding: 20px 0px;
+
+        li {
+          &:first-child {
+            margin-top: 0px;
+          }
+        }
+      }
+
+      li {
+        @include variable.flex;
+        @include variable.align-item_center;
+        margin-top: 10px;
+
+        img {
+          width: 20px;
+          height: 20px;
+          object-fit: contain;
+          margin-right: 20px;
+        }
+
+        a {
+          color: variable.$blue-primary;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .r-title {
+      padding-bottom: 10px;
+      border-bottom: 3px solid variable.$blue-primary;
+      @include variable.flex;
+      @include variable.justify-content_between;
+
+      h3 {
+        color: variable.$blue-primary;
+        font-size: 22px;
+        @include variable.max-420 {
+          font-size: 20px;
+        }
+      }
+
+      span {
+        background: variable.$blue-primary;
+        color: variable.$white;
+        font-size: 14px;
+        display: block;
+        height: 30px;
+        line-height: 30px;
+        padding: 0px 10px;
+      }
+    }
+  }
+}
+
+.nav-links {
+  @include variable.flex;
+  @include variable.justify-content_center;
+  width: 100%;
+
+  .page-numbers {
+    background: variable.$blue-primary;
+    color: variable.$white;
+    font-weight: 400;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    display: block;
+    margin: 0px 10px;
+  }
+}
+
+.pagination {
+  ul {
+    @include variable.flex;
+    @include variable.justify-content_center;
+    width: 100%;
+  }
+
+  a {
+    background: variable.$blue-primary;
+    color: variable.$white;
+    font-weight: 400;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    display: block;
+    margin: 0px 10px;
+  }
+}
+
+/************************************/
+/***** 	   07. Developments Page		 ****/
+/************************************/
+.region {
+  &__content {
+    &-key {
+      @include variable.flex;
+      @include variable.justify-content_center;
+      padding: 21px 0px;
+    }
+
+    &-keyinner {
+      border: 3px solid variable.$blue-primary;
+      padding: 10px 60px 15px 15px;
+
+      h5, li, span {
+        font-size: 11px;
+      }
+
+      h5 {
+        text-align: center;
+        color: variable.$blue-primary;
+        margin-bottom: 5px;
+      }
+
+      li {
+        color: variable.$text-black;
+        font-weight: 500;
+
+        span {
+          float: right;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+/************************************/
+/***** 	   08. Team Page		 ****/
+/************************************/
+.out-team-wrap {
+  @extend .section-padding;
+}
+
+
+
+.out-team {
+  @extend .section-margin-bottom;
+
+  &__inner {
+    border: 0 solid variable.$blue-primary;
+    padding: 40px;
+    @include variable.max-991 {
+      padding: 30px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: variable.$blue-primary;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__image {
+    text-align: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include variable.max-991 {
+      text-align: left;
+    }
+
+    a {
+      @include variable.blue-btn;
+      @include variable.border-radius(0px);
+      margin-top: 40px;
+      @include variable.max-1199 {
+        padding: 5px 20px;
+      }
+      @include variable.max-991 {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__content {
+    padding: 0px 70px 0px 40px;
+    @include variable.max-991 {
+      padding: 0px 0px 0px 0px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      word-break: break-all;
+      @include variable.description;
+    }
+  }
+}
+
+.no-content {
+  h3 {
+    font-size: 24px;
+    color: #134f8d;
+    margin: 40px 0;
+  }
+  .out-team__contact {
+    flex-direction: column;
+  }
+}
+
+.management-content {
+  h1 {
+    color: variable.$white;
+    font-size: 46px;
+    margin-bottom: 50px;
+    margin-left: -20px;
+    @include variable.max-767 {
+      font-size: 30px;
+      margin-left: 0px;
+      margin-bottom: 30px;
+    }
+  }
+
+  p, li {
+    color: variable.$white;
+    font-size: 16px;
+    font-family: variable.$font-worksans;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 40px;
+    margin-bottom: 10px;
+  }
+}
+
+.management-wrap {
+  background: variable.$blue-primary;
+  border-bottom: 1px solid variable.$white;
+  padding: 150px 0px 100px;
+  position: relative;
+  overflow-x: hidden;
+  @include variable.max-767 {
+    padding: 120px 0 70px;
+  }
+
+  &::after {
+    @include variable.absolute-common;
+    width: 100%;
+    height: 80px;
+    background: variable.$white;
+    top: -43px;
+    left: 0;
+    @include variable.rotate(rotate(-3deg));
+  }
+}
+
+.services-box-main {
+  margin: 0px -15px;
+  @include variable.max-767 {
+    margin: 0;
+  }
+}
+
+.services-box {
+  padding: 0px 15px;
+  margin-top: 60px;
+  @include variable.max-767 {
+    padding: 0px;
+    margin-top: 30px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+/************************************/
+/***** 	   08. News Page		 ****/
+/************************************/
+.news-wrap {
+  @extend .section-padding;
+  background: variable.$gray-bg;
+}
+
+.slick-arrow {
+  i {
+    font-size: 50px;
+    color: variable.$blue-primary;
+    @include variable.max-767 {
+      color: variable.$white;
+    }
+  }
+}
+
+.single-blog {
+  @extend .section-padding;
+
+  .date.date-center {
+    display: block;
+    text-align: center;
+  }
+
+  .date.date-left {
+    display: block;
+    text-align: left;
+  }
+
+  h1 {
+    color: variable.$blue-primary;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    @include variable.max-767 {
+      font-size: 24px;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+  }
+
+  span {
+    color: variable.$blue-primary;
+    font-size: 11px;
+  }
+
+  a {
+    color: variable.$blue-primary;
+  }
+
+  .blog-image {
+    @extend .section-padding;
+    @include variable.max-767 {
+      padding: 30px 0px;
+    }
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  p, li {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: variable.$blue-primary;
+    font-weight: 500;
+    @include variable.max-767 {
+      font-size: 14px;
+    }
+  }
+
+  ul, ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+  }
+}
