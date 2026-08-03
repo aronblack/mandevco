@@ -124,12 +124,12 @@ add_action( 'widgets_init', 'mandevco_widgets_init' );
  */
 function mandevco_scripts() {
 	// include css file
-	wp_enqueue_style( 'mandevco-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'mandevco-google-fonts', 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap', array(), null );
 	wp_enqueue_style( 'bootstrap-min-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '20151215' );
 	wp_enqueue_style( 'fontawesome-css', get_template_directory_uri() . '/css/font-avesome-all.css', array(), '20151215' );
 	wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/css/slick.css', array(), '20151215' );
 	wp_enqueue_style( 'slick-theme-css', get_template_directory_uri() . '/css/slick-theme.css', array( 'slick-css' ), '20151215' );
-	wp_enqueue_style( 'style-css', get_template_directory_uri() . '/css/style.css', array( 'bootstrap-min-css', 'fontawesome-css', 'slick-theme-css' ), filemtime( get_stylesheet_directory() . '/css/style.css' ), false );
+	wp_enqueue_style( 'mandevco-style', get_template_directory_uri() . '/css/style.css', array( 'mandevco-google-fonts', 'bootstrap-min-css', 'fontawesome-css', 'slick-theme-css' ), filemtime( get_stylesheet_directory() . '/css/style.css' ), false );
 
 	// include js file
 	wp_enqueue_script( 'jquery' );
