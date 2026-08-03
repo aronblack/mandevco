@@ -31,6 +31,15 @@ jobs:
           ssh -p "${{ secrets.DEPLOY_PORT }}" "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
             "mkdir -p '${{ secrets.DEPLOY_PATH }}'"
 
+      - name: Create deploy version marker
+        run: |
+          cat > app/public/wp-content/themes/mandevco/version.txt <<EOF
+          commit=${{ github.sha }}
+          deployed_at_utc=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          workflow_run=${{ github.run_id }}
+          repository=${{ github.repository }}
+          EOF
+
       - name: Deploy theme via rsync
         run: |
           rsync -az --delete \
