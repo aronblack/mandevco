@@ -3,6 +3,7 @@
 
 # Keep git metadata files
 !.gitignore
+!CHANGELOG.md
 !.github/
 !.github/workflows/
 !.github/workflows/**
