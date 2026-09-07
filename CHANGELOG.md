@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026-09-07
+## September 2026
 
 ### Added
 
@@ -24,4 +24,3 @@
 - Rotated the deployment SSH credential after the original private key was exposed.
 - Removed obsolete hosting keys and retained only the verified replacement deployment key.
 - Confirmed production deployment version tracking and LiteSpeed cache purging.
-
