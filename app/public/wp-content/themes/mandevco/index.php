@@ -70,7 +70,7 @@ get_header();
 													   ?>
 													   <img src="<?php echo esc_url( $box_image ); ?>" alt="<?php echo esc_attr( mandevco_get_image_alt( $box_image_id, $box_title ) ); ?>">
 												   </div>
-												   <h2><a href="<?php the_sub_field('box_link');?>"><?php echo esc_html( $box_title ); ?></a></h2>
+												   <h2><a href="<?php the_sub_field('box_link');?>"><?php echo wp_kses( $box_title, array( 'br' => array() ) ); ?></a></h2>
 												   <p><?php the_sub_field('box_description');?> </p>
 											   </div>
 										   </div>
@@ -104,7 +104,7 @@ get_header();
 																<div class="row">
 																	<div class="col-md-8">
 																		<div class="grid-box__content">
-																			<h2><?php echo esc_html( $box_title ); ?></h2>
+																			<h2><?php echo wp_kses( $box_title, array( 'br' => array() ) ); ?></h2>
 																			<p><?php the_sub_field('box_description');?></p>
 																			<a class="blue-btn" href="<?php the_sub_field('box_button_link');?>"><?php the_sub_field('box_button');?></a>
 																		</div>
@@ -126,7 +126,7 @@ get_header();
 																	</div>
 																	<div class="col-md-8">
 																		<div class="grid-box__content">
-																			<h2><?php echo esc_html( $box_title ); ?></h2>
+																			<h2><?php echo wp_kses( $box_title, array( 'br' => array() ) ); ?></h2>
 																			<p><?php the_sub_field('box_description');?></p>
 																			<a class="blue-btn" href="<?php the_sub_field('box_button_link');?>"><?php the_sub_field('box_button');?></a>
 																		</div>
