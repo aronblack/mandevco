@@ -876,6 +876,8 @@ input:focus {
   font-size: 14px;
   color: #fff;
   font-family: "Work Sans", sans-serif;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   -webkit-transition: all 500ms;
   -moz-transition: all 500ms;
   -ms-transition: all 500ms;
@@ -883,7 +885,8 @@ input:focus {
   transition: all 500ms;
 }
 .footer .footer-menu a:hover {
-  color: #333333;
+  color: #fff;
+  text-decoration: none;
 }
 .footer h4 {
   font-size: 16px;
@@ -938,6 +941,8 @@ input:focus {
 }
 .footer .footer-contact a {
   display: block;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   -webkit-transition: all 500ms;
   -moz-transition: all 500ms;
   -ms-transition: all 500ms;
@@ -945,7 +950,8 @@ input:focus {
   transition: all 500ms;
 }
 .footer .footer-contact a:hover {
-  color: #333333;
+  color: #fff;
+  text-decoration: none;
 }
 
 .border-right {

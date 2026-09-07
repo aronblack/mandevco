@@ -691,10 +691,13 @@ input:focus {
       font-size: 14px;
       color: variable.$white;
       font-family: variable.$font-worksans;
+      text-decoration: underline;
+      text-underline-offset: 3px;
       @include variable.transition(all 500ms);
 
       &:hover {
-        color: variable.$text-black;
+        color: variable.$white;
+        text-decoration: none;
       }
     }
   }
@@ -752,10 +755,13 @@ input:focus {
 
     a {
       display: block;
+      text-decoration: underline;
+      text-underline-offset: 3px;
       @include variable.transition(all 500ms);
 
       &:hover {
-        color: variable.$text-black;
+        color: variable.$white;
+        text-decoration: none;
       }
     }
   }
