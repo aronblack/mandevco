@@ -24,3 +24,23 @@
 - Rotated the deployment SSH credential after the original private key was exposed.
 - Removed obsolete hosting keys and retained only the verified replacement deployment key.
 - Confirmed production deployment version tracking and LiteSpeed cache purging.
+
+## August 2026
+
+### Added
+
+- Imported the Mandevco WordPress theme into version control.
+- Added automatic theme deployment through GitHub Actions for changes pushed to `main`.
+- Added a production `version.txt` marker containing the deployed commit, timestamp, workflow run, and repository.
+- Added a manual rollback workflow for deploying a previous commit.
+
+### Changed
+
+- Improved frontend stylesheet, script, and Google Fonts loading.
+- Added file-based cache versions for the theme's primary CSS and JavaScript assets.
+
+### Fixed
+
+- Corrected the frontend jQuery no-conflict error.
+- Corrected JavaScript dependency declarations and loading order.
+- Removed duplicate Google Fonts requests.
