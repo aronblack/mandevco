@@ -20,7 +20,7 @@
 					<div class="col-lg-3 border-right logo-col">
 						<div class="footer-logo">
 							<a href="<?php echo get_home_url();?>">
-								<img src="<?php the_field('footer_logo', 'option');?>" alt="">
+								<img src="<?php the_field('footer_logo', 'option');?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 							</a>
 						</div>
 					</div>

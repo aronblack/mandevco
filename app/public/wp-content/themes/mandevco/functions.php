@@ -87,6 +87,80 @@ endif;
 add_action( 'after_setup_theme', 'mandevco_setup' );
 
 /**
+ * Return localized homepage SEO content.
+ *
+ * @return array
+ */
+function mandevco_get_home_seo_content() {
+	$language = apply_filters( 'wpml_current_language', null );
+
+	if ( empty( $language ) ) {
+		$language = determine_locale();
+	}
+
+	if ( 0 === strpos( $language, 'fr' ) ) {
+		return array(
+			'title'       => 'Location immobilière commerciale à Montréal | Mandevco',
+			'description' => 'Découvrez les espaces commerciaux, industriels et de bureaux à louer de Mandevco dans le Grand Montréal, ainsi que nos services immobiliers.',
+		);
+	}
+
+	return array(
+		'title'       => 'Commercial Real Estate & Property Leasing | Mandevco',
+		'description' => 'Explore Mandevco commercial, office and industrial properties for lease across Greater Montreal, backed by decades of real estate experience.',
+	);
+}
+
+/**
+ * Improve the homepage document title.
+ *
+ * @param string $title Current document title.
+ * @return string
+ */
+function mandevco_home_document_title( $title ) {
+	if ( ! is_front_page() ) {
+		return $title;
+	}
+
+	$seo_content = mandevco_get_home_seo_content();
+
+	return $seo_content['title'];
+}
+add_filter( 'pre_get_document_title', 'mandevco_home_document_title' );
+
+/**
+ * Add a homepage meta description.
+ */
+function mandevco_home_meta_description() {
+	if ( ! is_front_page() ) {
+		return;
+	}
+
+	$seo_content = mandevco_get_home_seo_content();
+	?>
+	<meta name="description" content="<?php echo esc_attr( $seo_content['description'] ); ?>">
+	<?php
+}
+add_action( 'wp_head', 'mandevco_home_meta_description', 1 );
+
+/**
+ * Use an attachment's authored alt text, with a contextual fallback.
+ *
+ * @param int    $attachment_id Attachment ID.
+ * @param string $fallback      Fallback text.
+ * @return string
+ */
+function mandevco_get_image_alt( $attachment_id, $fallback = '' ) {
+	$alt = '';
+
+	if ( $attachment_id ) {
+		$alt = get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+	}
+
+	return $alt ? $alt : wp_strip_all_tags( $fallback );
+}
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -747,4 +821,3 @@ function get_contact_info_html() {
 
     return $html;
 }
-

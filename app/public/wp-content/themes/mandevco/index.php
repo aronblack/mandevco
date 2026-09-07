@@ -63,9 +63,14 @@ get_header();
 										   <div class="col-md-4">
 											   <div class="card-box">
 												   <div class="card-box__image">
-													   <img src="<?php the_sub_field('box_image');?>" alt="">
+													   <?php
+													   $box_image = get_sub_field( 'box_image' );
+													   $box_title = get_sub_field( 'box_title' );
+													   $box_image_id = attachment_url_to_postid( $box_image );
+													   ?>
+													   <img src="<?php echo esc_url( $box_image ); ?>" alt="<?php echo esc_attr( mandevco_get_image_alt( $box_image_id, $box_title ) ); ?>">
 												   </div>
-												   <h2><a href="<?php the_sub_field('box_link');?>"><?php the_sub_field('box_title');?></a></h2>
+												   <h2><a href="<?php the_sub_field('box_link');?>"><?php echo esc_html( $box_title ); ?></a></h2>
 												   <p><?php the_sub_field('box_description');?> </p>
 											   </div>
 										   </div>
@@ -87,7 +92,11 @@ get_header();
                                     if( have_rows('zizeg_box') )
                                     {	$key = 0;
                                         while  (have_rows('zizeg_box')) {
-											the_row(); ?>
+											the_row();
+											$box_image = get_sub_field( 'box_image' );
+											$box_title = get_sub_field( 'box_title' );
+											$box_image_id = attachment_url_to_postid( $box_image );
+											?>
                                            <!-- <div class="grid-box grid-box--left-content">
 												<div class="row"> -->
 													<?php if($key % 2 == 0){ ?>
@@ -95,14 +104,14 @@ get_header();
 																<div class="row">
 																	<div class="col-md-8">
 																		<div class="grid-box__content">
-																			<h2><?php the_sub_field('box_title');?></h2>
+																			<h2><?php echo esc_html( $box_title ); ?></h2>
 																			<p><?php the_sub_field('box_description');?></p>
 																			<a class="blue-btn" href="<?php the_sub_field('box_button_link');?>"><?php the_sub_field('box_button');?></a>
 																		</div>
 																	</div>
 																	<div class="col-md-4">
 																		<div class="grid-box__image">
-																			<img src="<?php the_sub_field('box_image');?>" alt="">
+																			<img src="<?php echo esc_url( $box_image ); ?>" alt="<?php echo esc_attr( mandevco_get_image_alt( $box_image_id, $box_title ) ); ?>">
 																		</div>
 																	</div>
 																</div>
@@ -112,12 +121,12 @@ get_header();
 																<div class="row">
 																	<div class="col-md-4">
 																		<div class="grid-box__image">
-																			<img src="<?php the_sub_field('box_image');?>" alt="">
+																			<img src="<?php echo esc_url( $box_image ); ?>" alt="<?php echo esc_attr( mandevco_get_image_alt( $box_image_id, $box_title ) ); ?>">
 																		</div>
 																	</div>
 																	<div class="col-md-8">
 																		<div class="grid-box__content">
-																			<h2><?php the_sub_field('box_title');?></h2>
+																			<h2><?php echo esc_html( $box_title ); ?></h2>
 																			<p><?php the_sub_field('box_description');?></p>
 																			<a class="blue-btn" href="<?php the_sub_field('box_button_link');?>"><?php the_sub_field('box_button');?></a>
 																		</div>
@@ -161,7 +170,14 @@ get_header();
 													<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
 													<div class="our-blog__image">
 														<a href="<?php the_permalink() ?>">
-															<?php the_post_thumbnail(); ?>
+															<?php
+															the_post_thumbnail(
+																'post-thumbnail',
+																array(
+																	'alt' => mandevco_get_image_alt( get_post_thumbnail_id(), get_the_title() ),
+																)
+															);
+															?>
 														</a>
 													</div>
 													<?php the_excerpt(); ?>
@@ -206,7 +222,7 @@ if ($team_posts->have_posts()): ?>
                             <div class="col-md-7">
                                 <div class="our-team__image">
                                     <?php while ($team_posts->have_posts()): $team_posts->the_post(); ?>
-                                        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>" alt="<?php the_title(); ?>">
+                                        <img src="<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'large' ) ); ?>" alt="<?php echo esc_attr( mandevco_get_image_alt( get_post_thumbnail_id(), get_the_title() ) ); ?>">
                                     <?php endwhile; ?>
                                     <?php endif; wp_reset_postdata(); ?>                                </div>
                             </div>
