@@ -31,9 +31,10 @@
 				</a>
 			</div><!-- .site-branding -->
 	
-			<div class="menu-icon">
-				<i class="far fa-bars"></i>
-			</div>
+			<button class="menu-icon" type="button" aria-controls="site-navigation" aria-expanded="false">
+				<span class="screen-reader-text"><?php esc_html_e( 'Toggle navigation', 'mandevco' ); ?></span>
+				<i class="far fa-bars" aria-hidden="true"></i>
+			</button>
 			<div class="navigation">
 				<nav id="site-navigation" class="main-navigation">
 					<?php

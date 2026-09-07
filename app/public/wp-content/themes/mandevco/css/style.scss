@@ -48,6 +48,19 @@ img {
   max-width: 100%;
 }
 
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
 a:hover,
 a {
   text-decoration: none;
@@ -209,6 +222,9 @@ input:focus {
 .menu-icon {
   display: none;
   cursor: pointer;
+  background: transparent;
+  border: 0;
+  padding: 0;
   @include variable.max-767 {
     display: block;
     text-align: right;
@@ -218,6 +234,13 @@ input:focus {
     font-size: 40px;
     color: variable.$gray-bg;
   }
+}
+
+.menu-icon:focus-visible,
+.main-navigation a:focus-visible,
+.footer-follow a:focus-visible {
+  outline: 3px solid variable.$blue-primary;
+  outline-offset: 3px;
 }
 
 /************************************/

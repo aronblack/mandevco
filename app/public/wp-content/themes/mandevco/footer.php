@@ -55,14 +55,14 @@
 						</div>
 						<div class="footer-follow">
 							<h4><?php the_field('social_follow_title', 'option');?></h4>
-							<a href="<?php the_field('linkdin_url', 'option');?>" title="">
-								<i class="fab fa-linkedin-in"></i>
+							<a href="<?php the_field('linkdin_url', 'option');?>" aria-label="<?php echo esc_attr( sprintf( __( '%s on LinkedIn', 'mandevco' ), get_bloginfo( 'name' ) ) ); ?>">
+								<i class="fab fa-linkedin-in" aria-hidden="true"></i>
 							</a>
-							<a href="<?php the_field('facebook_url', 'option');?>" title="">
-								<i class="fab fa-facebook-f"></i>								
+							<a href="<?php the_field('facebook_url', 'option');?>" aria-label="<?php echo esc_attr( sprintf( __( '%s on Facebook', 'mandevco' ), get_bloginfo( 'name' ) ) ); ?>">
+								<i class="fab fa-facebook-f" aria-hidden="true"></i>
 							</a>
-							<a href="<?php the_field('instagram_url', 'option');?>" title="">
-								<i class="fab fa-instagram"></i>								
+							<a href="<?php the_field('instagram_url', 'option');?>" aria-label="<?php echo esc_attr( sprintf( __( '%s on Instagram', 'mandevco' ), get_bloginfo( 'name' ) ) ); ?>">
+								<i class="fab fa-instagram" aria-hidden="true"></i>
 							</a>
 						</div>
 					</div>
