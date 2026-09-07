@@ -46,7 +46,31 @@
 				</nav><!-- #site-navigation -->
 			</div>
 			<div class="lang-switch">
-				<?php echo do_shortcode('[wpml_language_selector_widget]'); ?>
+				<?php
+				$languages = apply_filters(
+					'wpml_active_languages',
+					null,
+					array(
+						'orderby'      => 'code',
+						'skip_missing' => 0,
+					)
+				);
+
+				if ( is_array( $languages ) ) {
+					foreach ( $languages as $language ) {
+						if ( ! empty( $language['active'] ) ) {
+							continue;
+						}
+
+						$language_label = 'fr' === $language['code'] ? 'Français' : 'English';
+						?>
+						<a class="lang-switch__link" href="<?php echo esc_url( $language['url'] ); ?>" hreflang="<?php echo esc_attr( $language['code'] ); ?>" lang="<?php echo esc_attr( $language['code'] ); ?>">
+							<?php echo esc_html( $language_label ); ?>
+						</a>
+						<?php
+					}
+				}
+				?>
 			</div>
 		</div>
 	</header><!-- #masthead -->
