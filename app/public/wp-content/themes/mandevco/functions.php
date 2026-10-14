@@ -325,13 +325,41 @@ function custom_post_type() {
 			array(  
 				'hierarchical' => true,  
 				'label' => 'Region',  //Display name
+				'public' => true,
+				'show_ui' => true, // Ensures the Region filter dropdown appears on the Commercials admin list
 				'query_var' => true,
+				'show_admin_column' => true, // Show Region as a column on the Commercials admin list
 				'rewrite' => array(
 					'slug' => 'region', // This controls the base slug that will display before each term
 					'with_front' => false // Don't display the category base before 
 				)
 			)  
 		);  
+	}
+
+	add_action( 'restrict_manage_posts', 'mandevco_commercial_region_filter' );
+	function mandevco_commercial_region_filter() {
+		global $typenow;
+
+		if ( 'commercial' !== $typenow ) {
+			return;
+		}
+
+		$taxonomy = 'region';
+		$selected = isset( $_GET[ $taxonomy ] ) ? sanitize_text_field( wp_unslash( $_GET[ $taxonomy ] ) ) : '';
+
+		wp_dropdown_categories( array(
+			'show_option_all' => __( 'All Regions', 'mandevco' ),
+			'taxonomy'        => $taxonomy,
+			'name'            => $taxonomy,
+			'orderby'         => 'name',
+			'selected'        => $selected,
+			'hierarchical'    => true,
+			'depth'           => 3,
+			'show_count'      => true,
+			'hide_empty'      => true,
+			'value_field'     => 'slug',
+		) );
 	}
 	 
 	/* Hook into the 'init' action so that the function
