@@ -74,21 +74,20 @@ $post_type_data = get_post_type_details( 'development' );
                                                         the_content();
                                                         ?>
                                                     </div>
+                                                    <?php if( have_rows('key_demographics') ) : ?>
                                                     <div class="region__content-key">
                                                         <div class="region__content-keyinner">
                                                             <h5>KEY DEMOGRAPHICS</h5>
                                                             <ul>
                                                                 <?php
-                                                                if( have_rows('key_demographics') ){	
-                                                                    while  (have_rows('key_demographics')) {
-                                                                        the_row();
-                                                                    ?>
-                                                                    <li><?php the_sub_field('title'); ?>:  
-                                                                        <span><?php the_sub_field('value'); ?></span>
-                                                                    </li>
-                                                                    <?php
-                                                                      }
-                                                                    }        
+                                                                while  (have_rows('key_demographics')) {
+                                                                    the_row();
+                                                                ?>
+                                                                <li><?php the_sub_field('title'); ?>:  
+                                                                    <span><?php the_sub_field('value'); ?></span>
+                                                                </li>
+                                                                <?php
+                                                                  }
 //                                                              ?>
                                                                 <!-- <li>Total population within 5km radius:  
                                                                     <span>281,732</span>
@@ -102,6 +101,7 @@ $post_type_data = get_post_type_details( 'development' );
                                                             </ul>
                                                         </div>
                                                     </div>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
