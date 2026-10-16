@@ -31,7 +31,9 @@ if ( is_tax() ) {
                     <div class="region__content-head">
                       <div class="r-title">
                         <h3><?php the_title(); ?></h3>
-                        <span>#<?php the_field('post_number'); ?></span>
+                        <?php $post_number = get_field('post_number'); if ( $post_number ) : ?>
+                        <span>#<?php echo esc_html( $post_number ); ?></span>
+                        <?php endif; ?>
                       </div>
                       <ul>
                         <li>
